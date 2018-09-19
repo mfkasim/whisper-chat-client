@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.eth.test</groupId>
+	<artifactId>EthTestApp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>EthTestApp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180813</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<!-- <dependency> <groupId>com.googlecode.json-simple</groupId> <artifactId>json-simple</artifactId> 
+			<version>1.1.1</version> </dependency> -->
+		<!-- <dependency> <groupId>org.ethereum</groupId> <artifactId>ethereumj-core</artifactId> 
+			<version>1.8.2-RELEASE</version> </dependency> -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>com.google.code.gson</groupId> <artifactId>gson</artifactId> 
+			<version>2.8.5</version> <scope>compile</scope> </dependency> -->
+	</dependencies>
+
+	<repositories>
+
+		<repository>
+			<id>Ethereum_Repository</id>
+			<name>Ethereum Repository</name>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>https://dl.bintray.com/ethereum/maven/</url>
+		</repository>
+
+		<!-- <repository> <id>edafa-releases-repository</id> <name>Edafa Releases 
+			Repo</name> <url>http://edafanode1:8085/nexus/content/repositories/edafa-releases-repository/ 
+			</url> <releases> <enabled>false</enabled> </releases> </repository> <repository> 
+			<id>edafa-snapshots-repository</id> <name>Edafa snapshots Repo</name> <url>http://edafanode1:8085/nexus/content/repositories/edafa-snapshots-repository/ 
+			</url> <snapshots> <enabled>false</enabled> </snapshots> </repository> <repository> 
+			<id>thirdparty</id> <name>3rd party</name> <url>http://edafanode1:8085/nexus/content/repositories/thirdparty/ 
+			</url> <releases> <enabled>false</enabled> </releases> </repository> <repository> 
+			<id>opencloud-public</id> <name>OpenCloud Public Maven2 Repository</name> 
+			<url>http://developer.opencloud.com/maven2/public</url> <releases> <enabled>false</enabled> 
+			</releases> </repository> <repository> <id>apache-snapshots</id> <name>Apache 
+			Snapshots</name> <url>http://edafanode1:8085/nexus/content/repositories/apache-snapshots/ 
+			</url> <releases> <enabled>false</enabled> </releases> </repository> -->
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.eth.test.ChatCli</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+</project>
